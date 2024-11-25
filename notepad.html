@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Notepad{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="my-4 text-center">Your Notepad</h2>
+
+    <form action="{{ url_for('update_notepad') }}" method="POST">
+        <div class="form-group">
+            <label for="content">Edit Your Notepad</label>
+            <textarea class="form-control" id="content" name="content" rows="10" required>{{ notepad_content }}</textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Save</button>
+    </form>
+
+    <div class="mt-3 text-center">
+        <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+    </div>
+</div>
+{% endblock %}
